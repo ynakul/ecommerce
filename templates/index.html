@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+
+
+{% block content %}
+
+  <style>
+         .ls{
+            	background: #09294c;
+               font-color:white;
+              
+         }
+         .buddy{
+            margin-left:200px;
+         }
+      </style>    
+     
+
+      <div class="page-content-product">
+         <div class="main-product">
+            <div class="container">
+               <div class="row clearfix">
+                  <div class="find-box">
+                     <h1>If you don’t like to read,<br> you haven’t found the right book.</h1>
+                     <h4>-J.K. Rowling
+                     </h4>
+                     
+                           
+
+
+                             
+                  </div>
+               </div>
+               <div class="row clearfix">
+                  
+                  <div class=" buddy col-lg-3 col-sm-6 col-md-3">
+                     <a href="/category">
+                        <div class="box-img">
+                           <h4>BUY STUFF</h4>
+                           <img src="{%static 'website/images/buystuff.jpg'%}" alt="" />
+                        </div>
+                     </a>
+                  </div>
+
+                  <div class=" buddy col-lg-3 col-sm-6 col-md-3">
+                     <a href="/sell">
+                        <div class="box-img">
+                           <h4>SELL STUFF</h4>
+                           <img src="{%static 'website/images/Screenshot (45).png'%}" alt="" />
+                        </div>
+                     </a>
+                  </div>
+                  
+                 
+                  <div class="categories_link">
+                     <a href="category.html">Browse all categories here</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="cat-main-box">
+         <div class="container">
+            <div class="row panel-row">
+               <div class="col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.0s">
+                  <div class="panel panel-default">
+                     <div class="panel-body">
+                        <img src="{%static 'website/images/xpann-icon.jpg'%}" class="icon-small" alt="">
+                        <h4>Sell your used books here</h4>
+                        <p>sell your used books here, <br> so that anyone who need them can get .
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
+                  <div class="panel panel-default">
+                     <div class="panel-body">
+                        <img src="{%static 'website/images/create-icon.jpg'%}" class="icon-small" alt="">
+                        <h4>Buy cool stationary stuff</h4>
+                        <p>
+                           projects of schools and universities?<br> huh! easy peasy <br>
+                           make them attractive using cool stationary stuff.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-6 wow fadeIn hidden-sm" data-wow-delay="0.4s">
+                  <div class="panel panel-default">
+                     <div class="panel-body">
+                        <img src="{%static 'website/images/get-icon.jpg'%}" class="icon-small" alt="">
+                         <h4>Worried about knowledge and marks? </h4>  
+                        <p> Books related to Competetion and Academics ,
+                           available at pocket friendly prices.
+                           
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="products_exciting_box">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
+                  <div class="exciting_box f_pd">
+                     <img src="{%static 'website/images/exciting_img-01.jpg'%}" class="icon-small" alt="" />
+                     <h4>Explore <strong>exciting</strong> and exotic products
+                        tailored to you.
+                     </h4>
+                     <p>
+                     Hey reader ! if you want some books to grow up your imagination than you are at 
+                     the right place.
+                     </p>
+                  </div>
+               </div>
+               <div class="col-md-6 col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+                  <div class="exciting_box l_pd">
+                     <img src="{%static 'website/images/exciting_img-02.jpg'%}" class="icon-small" alt="" />
+                     <h4><strong>List your products </strong>and grow connections.</h4>
+                     <p>sell your used books at best price here .
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="start-free-box">
+         <div class="container">
+            <div class="row">
+               <div class="container">
+                  <div class="main-start-box">
+                     <div class="free-box-a clearfix">
+                        <div class="col-md-6 col-sm-6">
+                           <div class="left-a-f">
+                              <h3>A platform built for scale & expansion. Start for free.</h3>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                           <div class="right-a-f">
+                              <p>Over the comming years,students in every area 
+                                 are struggling to get books. your time is precious,
+                                yes! we are here, save your time now , get your books at your doorsteps.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="main-start-box">
+                  <div class="bg_img_left"><img src="{%static 'website/images/images/bg_img1.png'%}" alt="#" /></div>
+                  <div class="container">
+                     <div class="buyer-box clearfix">
+                        <div class="col-md-6 col-sm-6 wow fadeIn" data-wow-delay="0.2s">
+                           <div class="left-buyer">
+                              <img class="img-responsive" src="{%static 'website/images/wp2036897-books-wallpapers.jpg'%}" alt="#" />
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 wow fadeIn" data-wow-delay="0.4s">
+                           <div class="right-buyer">
+                              <h4>buyer</h4>
+                              <h2>Empower your knowledge and skills<br>
+                                 <span>With books and cool stuff you need </span>
+                              </h2>
+                              <p>Never worry about marks. with WYN your mind is directly
+                                 connected to thousands of books which should be on your table
+                                 .
+                              </p>
+                              
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="bg_img_right"><img src="{%static 'website/images/images/bg_img1.png'%}" alt="#" /></div>
+               <div class="main-start-box">
+                  <div class="container">
+                     <div class="supplier clearfix">
+                        <div class="col-md-5 col-sm-6">
+                           <div class="left-supplier">
+                              <h4>supplier</h4>
+                              <h2>Grow your store <br><span>With a new sales channel</span></h2>
+                              <p>Never worry about sales or income from outbound
+                                 channels. with WYN your stack is directly
+                                 connected to thousands of interested in your
+                                 products.
+                              </p>
+                              .
+                             
+                           </div>
+                        </div>
+                        <div class="col-md-7 col-sm-6">
+                           <div class="right-supplier">
+                              <img class="img-responsive" src="{%static 'website/images/sellb.jpg'%}" alt="#" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+     
+
+      
+      <!--main js--> 
+      <script src="{%static 'website/js/jquery-1.12.4.min.js'%}"></script> 
+      <!--bootstrap js--> 
+      <script src="{%static 'website/js/bootstrap.min.js'%}"></script> 
+      <script src="{%static 'website/js/bootstrap-select.min.js'%}"></script>
+      <script src="{%static 'website/js/slick.min.js'%}"></script> 
+      <script src="{%static 'website/js/wow.min.js'%}"></script>
+      <!--custom js--> 
+      <script src="{%static 'website/js/custom.js'%}"></script>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+{% endblock %}

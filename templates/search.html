@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Search {% endblock %}
+
+{% block content %}
+<style>.polaroid {
+  width: 30%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.baby {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.betemoj,.usp{
+   display: flex;
+   margin-left: 300px;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Search Results for <span class="text-info">"{{request.GET.keyword}}"</span></h3>
+            <hr>
+            <div class="betemoj">     
+                  
+                      {% for result in results %}
+                          <div class="polaroid" > 
+                           <a > <img src='/media/{{result.image}}'  alt="Norther Lights" style="width:100%"></a>
+                          <div class="baby">
+                          <p><h4>{{result.title}}</h4></p>
+                          <p><span></span></p>
+                         <strike> <h3>Rs. {{result.marked_price}} </h3> </strike>
+                         <h3>Rs. {{result.selling_price}} </h3>
+                         <span id="divpr{{result.id}}" class="divpr">
+                           <!--<button id="pr{{i.id}} "type="button" class="btn btn-primary cart">Add to Cart</button>-->
+                           <a href="/addtocart/{{result.id}}" data-name="{{result.title}}" data-price="{{result.selling_price}}" class="add-to-cart btn btn-primary">Add to cart</a>
+                         </span>
+                         <a href="/product/{{result.id}}"><button id="qv{{result.id}}" class="btn btn-primary cart">Quick View</button></a>
+                          </div>
+                         </div>
+                     {% endfor %}
+                   </div>  
+                    </div>  
+                    </div>  
+                    </div>  
+                   {% endblock %}

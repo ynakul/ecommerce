@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+{% block content %}
+      <style>
+         .ls{
+            	background: #09294c;
+               font-color:white;
+              
+         }
+
+         .container1{
+             margin-left: 30%;
+             margin-top:50px;
+         }
+        
+        h3{
+             
+            margin-top: 15px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 2px #CCCCCC;
+            font-weight: bold; letter-spacing: -1px;
+         }
+            
+             
+      </style>
+     
+  
+     
+<div class="container1">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h3>Sign Up</h3><hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-primary">Register as a Customer</button>
+            </form>
+            <p> Already have an account? <a href="/login">Login here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

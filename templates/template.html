@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+.frm{ 
+    margin:100px
+}
+</style>
+    <form method="get" class="frm">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% for obj in filter.qs %}
+        {{ obj.title }} - ${{ obj.selling_price }}<br />
+    {% endfor %}
+{% endblock %}

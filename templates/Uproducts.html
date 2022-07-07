@@ -1,0 +1,946 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>WYN-buy and sell books</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!--enable mobile device-->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--fontawesome css--> 
+      <link rel="stylesheet" href="{%static 'website/css/font-awesome.min.css'%}">
+      <!--bootstrap css-->
+      <link rel="stylesheet" href="{%static 'website/css/bootstrap.min.css'%}">
+      <!--animate css-->
+      <link rel="stylesheet" href="{%static 'website/css/animate-wow.css' %}">
+      <!--main css-->
+      <link rel="stylesheet" href="{%static 'website/css/style.css'%}">
+      <link rel="stylesheet" href="{%static 'website/css/bootstrap-select.min.css'%}">
+      <link rel="stylesheet" href="{%static 'website/css/slick.min.css'%}">
+      <link rel="stylesheet" href="{%static 'website/css/jquery-ui.css'%}">
+      <!--responsive css-->
+      <link rel="stylesheet" href="{%static 'website/css/responsive.css'%}">
+
+     
+   </head>
+
+   <style>
+
+
+.polaroid {
+  width: 30%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.baby {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.betemoj{
+   display: flex;
+   margin-left: 300px;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+
+.show-cart li {
+  display: flex;
+}
+</style>
+   <body>
+      <header id="header" class="top-head">
+         <!-- Static navbar -->
+         <nav class="navbar navbar-default">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-4 col-sm-12 left-rs">
+                     <div class="navbar-header">
+                        <button type="button" id="top-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"> 
+                        <span class="sr-only">Toggle navigation</span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        </button>
+                        <!-- {%static 'website/images/'%}-->
+                        <a href="/" class="navbar-brand"><img src="{%static 'website/images/w1.jpg'%}" alt="" /></a>
+                     </div>
+                     <form class="navbar-form navbar-left web-sh">
+                        <div class="form">
+                           <input type="text" class="form-control" placeholder="Search for product">
+                        </div>
+                     </form>
+                  </div>
+                  <div class="col-md-8 col-sm-12">
+                     <div class="right-nav">
+                        <div class="login-sr">
+                           <div class="login-signup">
+                              
+                                 
+                              <div class="row">
+                              <div class="col">
+                               <a href="/mycart"> <button type="button"   class="btn btn-primary" data-toggle="modal" data-target="#cart">Cart (<span class="total-count"></span>)</button> </a>
+                                 </div>
+                                    </div>
+                                 
+                                      
+                                 
+                                         
+                                       
+                                 
+                              
+                           </div>
+                        </div>
+                        <div class="help-r hidden-xs">
+                           <div class="help-box">
+                              <ul>
+                                 <li> <a data-toggle="modal" data-target="#myModal" href="#"> <span>Ind</span> <img src="{%static 'website/images/TIR.png'%}" width="20px" height="20px" alt="" /> </a> </li>
+                                 <li> <a href="#"><img class="h-i" src="{%static 'website/images/images/help-icon.png'%}" alt="" /> Help </a> </li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="nav-b hidden-xs">
+                           <div class="nav-box">
+                              <ul>
+                                 <li><a href="\howitworks">How it works</a></li>
+                                 <li><a href="\about">about us</a></li>
+                                 
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--/.container-fluid --> 
+         </nav>
+      </header>
+      <!-- Modal -->
+ 
+      <div id="sidebar" class="top-nav">
+         <ul id="sidebar-nav" class="sidebar-nav">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">How it works</a></li>
+            <li><a href="#">WYN for Business</a></li>
+         </ul>
+      </div>
+      <div class="furniture-box">
+         <div class="terms-title">
+            <div class="container">
+               <!--<div class="row">
+                  <ol class="breadcrumb">
+                     <li><a href="#">Forntpage </a></li>
+                     <li class="active">New Books</li>
+                  </ol>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="furniture-box">
+         <div class="container">
+            <div class="row">
+               <div class="furniture-main">
+                  <h2>New Books</h2>
+                 <div class="col-md-3 col-sm-4">
+                     <div class="furniture-left">
+                        <h3>Filter Products</h3>
+                        <div class="by-box">
+                           <h5>By price</h5>
+                           <div id="slider-range"></div>
+                           <p>
+                              <input type="text" id="amount" readonly style="">
+                           </p>
+                        </div>
+                        <div class="by-com">
+                           <h5>Customer Rating</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox1" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox1">
+                                    5
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox2" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox2">
+                                    4 and more
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox3" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox3">
+                                    3 and more
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox4" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox4">
+                                    2 and more
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox5" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox5">
+                                    1 and more
+                                    </label>
+                                 </div>
+                             
+                                 
+                           </div>
+                        </div>
+                        </div>
+
+                        <div class="by-com">
+                           <h5>LANGUAGES</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox1" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox1">
+                                    English
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox2" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox2">
+                                    Hindi
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox3" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox3">
+                                    German 
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox4" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox4">
+                                    Russian
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox5" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox5">
+                                    French
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox5" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox5">
+                                    Sanskrit
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox5" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox5">
+                                    Urdu
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox5" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox5">
+                                    Others
+                                    </label>
+                                 </div>
+                                 
+                           </div>
+                        </div>
+                        </div>
+
+                        <div class="by-com">
+                           <h5>DISCOUNT</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox1" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox1">
+                                    60% and more
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox2" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox2">
+                                    50%-60%
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox3" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox3">
+                                       40%-50%
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox4" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox4">
+                                       30%-40%
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox5" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox5">
+                                       20%-30%
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox5" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox5">
+                                       10%-20%
+                                    </label>
+                                 </div>  
+                           </div>
+                        </div>
+                        </div>
+
+                        <div class="by-com">
+                           <h5>BINDING</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox1" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox1">
+                                    Paperback
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox2" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox2">
+                                    Hardcover
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox3" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox3">
+                                       Box Set
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox4" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox4">
+                                       Board Book
+                                    </label>
+                                 </div>
+                           </div>
+                        </div>
+                        </div>
+
+                        <div class="by-com">
+                           <h5>LATEST ARRIVAL</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox1" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox1">
+                                    Last 30 days
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox2" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox2">
+                                       Last 50 days
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox3" class="filled-in chk-col-blue" type="checkbox">
+                                    <label for="checkbox3">
+                                       Last 150 days
+                                    </label>
+                                 </div>
+                                 
+                           </div>
+                        </div>
+                        </div>
+                        <div class="left-list-f">
+                           <div class="panel-group" id="accordion">
+                              <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="panel-title expand">
+                                       <div class="right-arrow pull-right"><span class="caret"></span></div>
+                                       <a href="#">Sort by</a>
+                                    </h4>
+                                 </div>
+                                 <div id="collapse1" class="panel-collapse collapse">
+                                    <div class="panel-body">Lorem ipsum dolor sit amet,</div>
+                                 </div>
+                              </div>
+                              <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="panel-title expand">
+                                       <div class="right-arrow pull-right"><span class="caret"></span></div>
+                                       <a href="#">Ships from(country)</a>
+                                    </h4>
+                                 </div>
+                                 <div id="collapse2" class="panel-collapse collapse">
+                                    <div class="panel-body">Lorem ipsum dolor sit amet,</div>
+                                 </div>
+                              </div>
+                              <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="panel-title expand">
+                                       <div class="right-arrow pull-right"><span class="caret"></span></div>
+                                       <a href="#">Style</a>
+                                    </h4>
+                                 </div>
+                                 <div id="collapse3" class="panel-collapse collapse">
+                                    <div class="panel-body">Lorem ipsum dolor sit amet,</div>
+                                 </div>
+                              </div>
+                              <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="panel-title expand">
+                                       <div class="right-arrow pull-right"><span class="caret"></span></div>
+                                       <a href="#">Pattern type</a>
+                                    </h4>
+                                 </div>
+                                 <div id="collapse4" class="panel-collapse collapse">
+                                    <div class="panel-body">Lorem ipsum dolor sit amet,</div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>-->
+
+
+                  <div class="betemoj">
+
+                
+
+
+                         
+                         
+                  
+                      {% for i in usedproduct|slice:"0:"%} 
+                          <div class="polaroid" > 
+                           <a > <img src='/media/{{i.image}}'  alt="Norther Lights" style="width:100%"></a>
+                          <div class="baby">
+                          <p><h4>{{i.title}}</h4></p>
+                          <p><span></span></p>
+                         <strike> <h3>Rs. {{i.marked_price}} </h3> </strike>
+                         <h3>Rs. {{i.selling_price}} </h3>
+                         <span id="divpr{{i.id}}" class="divpr">
+                           <!--<button id="pr{{i.id}} "type="button" class="btn btn-primary cart">Add to Cart</button>-->
+                           <a href="/Uaddtocart/{{i.id}}" data-name="{{i.title}}" data-price="{{i.selling_price}}" class="add-to-cart btn btn-primary">Add to cart</a>
+                         </span>
+                         <a href="/usedproducts/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">Quick View</button></a>
+                          </div>
+                         </div>
+                     {% endfor %}
+                   </div>  
+
+                  <!--    <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="show-cart table">
+          
+        </table>
+        <div>Total price: Rs.<span class="total-cart"></span></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Order now</button>
+      </div>
+    </div> 
+  </div>
+</div>            -->
+                  
+                   <!--
+                  <div class="col-md-3 hidden-xs">
+                     <div class="furniture-right">
+                        <h3>categories</h3>
+                        <div class="right-list-f">
+                           <ul>
+                              <li> <img width="30" src="down.png" alt="">  CBSE <br> <select name="CBSE" id="CBSE"> 
+                                 <Option>Class 1st-5th</Option>
+                                 <Option>Class 5th-8th</Option>
+                                 <Option>Class 9th-10th</Option>
+                                 <Option>Class 11th (Science)</Option>
+                                 <Option>Class 11th (Commerce)</Option>
+                                 <Option>Class 11th (Arts)</Option>
+                                 <Option>Class 12th (Science)</Option>
+                                 <Option>Class 12th (Commerce)</Option>
+                                 <Option>Class 12th (Arts)</Option>
+                              </select> 
+                                   </li>
+                              <li> <img width="30" src="down.png" alt="">  ICSE <br> <select name="ICSE" id="ICSE"> 
+                                 <Option>Class 1st-5th</Option>
+                                 <Option>Class 5th-8th</Option>
+                                 <Option>Class 9th-10th</Option>
+                                 <Option>Class 11th (Science)</Option>
+                                 <Option>Class 11th (Commerce)</Option>
+                                 <Option>Class 11th (Arts)</Option>
+                                 <Option>Class 12th (Science)</Option>
+                                 <Option>Class 12th (Commerce)</Option>
+                                 <Option>Class 12th (Arts)</Option>
+                              </select> </li>
+                              <li><img width="30" src="down.png" alt=""> JEE MAIN</li>
+                              <li><img width="30" src="down.png" alt=""> NEET</li>
+                              <li><img width="30" src="down.png" alt=""> CLAT</li>
+                              <li><img width="30" src="down.png" alt=""> DEFENCE</li>
+                              <li><img width="30" src="down.png" alt=""> ENGINEERING</li>
+                              <li><img width="30" src="down.png" alt=""> MEDICAL</li>
+                              <li><img width="30" src="down.png" alt=""> PHARMACY</li>
+                              <li><img width="30" src="down.png" alt=""> LAW</li>
+                              <li><img width="30" src="down.png" alt=""> UPSC</li>
+                              <li><img width="30" src="down.png" alt=""> SSC</li>
+                              <li><img width="30" src="down.png" alt=""> OTHER GOVERNMENT EXAMS</li>
+                              <li><img width="30" src="down.png" alt=""> NOVELS</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  -->
+                  <div class="loding-box">
+                     <a href="#">
+                        <div class="sk-wave">
+                           <div class="sk-rect sk-rect1"></div>
+                           <div class="sk-rect sk-rect2"></div>
+                           <div class="sk-rect sk-rect3"></div>
+                           <div class="sk-rect sk-rect4"></div>
+                           <div class="sk-rect sk-rect5"></div>
+                        </div>
+                        <span>Loding more awesome products...</span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <footer>
+         <div class="main-footer">
+            <div class="container">
+               <div class="row">
+                  <div class="footer-top clearfix">
+                     <div class="col-md-2 col-sm-6">
+                        <h2>Start a free
+                           account today
+                        </h2>
+                     </div>
+                     <div class="col-md-6 col-sm-6">
+                        <div class="form-box">
+                           <input type="text" placeholder="Enter yopur e-mail" />
+                           <button>Continue</button>
+                        </div>
+                     </div>
+                     <div class="col-md-4 col-sm-12">
+                        <div class="help-box-f">
+                           <h4>Question? Call us on 12 34 56 78 for help</h4>
+                           <p>Easy setup - no payment fees </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="footer-link-box clearfix">
+                     <div class="col-md-6 col-sm-6">
+                        <div class="left-f-box">
+                           <div class="col-sm-4">
+                              <h2>SELL ON WYN</h2>
+                              <ul>
+                                 <li><a href="#">Create account</a></li>
+                                 <li><a href="howitworks.html">How it works suppliers</a></li>
+                                 <li><a href="pricing.html">Pricing</a></li>
+                                 <li><a href="#">FAQ for Suppliers</a></li>
+                              </ul>
+                           </div>
+                           <div class="col-sm-4">
+                              <h2>BUY ON WYN</h2>
+                              <ul>
+                                 <li><a href="#">Create account</a></li>
+                                 <li><a href="#">How it works buyers</a></li>
+                                 <li><a href="#">Categories</a></li>
+                                 <li><a href="#">FAQ for buyers</a></li>
+                              </ul>
+                           </div>
+                           <div class="col-sm-4">
+                              <h2>COMPANY</h2>
+                              <ul>
+                                 <li><a href="about-us.html">About WYN</a></li>
+                                 <li><a href="#">Contact us</a></li>
+                                 <li><a href="#">Press</a></li>
+                                 <li><a href="#">Careers</a></li>
+                                 <li><a href="#">Terms of use</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 col-sm-6">
+                        <div class="right-f-box">
+                           <h2>BOOKS WE HAVE</h2>
+                           <ul class="col-sm-4">
+                              <li><a href="#"></a>ICSE </li>
+                              <li><a href="#">CBSE </a></li>
+                              <li><a href="#">JEE MAIN</a></li>
+                              <li><a href="#">JEE ADVANCE</a></li>
+                              <li><a href="#">NEET</a></li>
+                           </ul>
+                           <ul class="col-sm-4">
+                              <li><a href="#">ENGINEERING</a></li>
+                              <li><a href="#">MEDICAL</a></li>
+                              <li><a href="#">PHARMACY</a></li>
+                              <li><a href="#"></a>ARTS</li>
+                              <li><a href="#">BUISNESS & FINANCE</a></li>
+                           </ul>
+                           <ul class="col-sm-4">
+                              <li><a href="#">NOVELS</a></li>
+                              <li><a href="#">UPSC</a></li>
+                              <li><a href="#">SSC</a></li>
+                              <li><a href="#">MANY MORE</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="copyright">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-8">
+                     <p><img width="90" src="w1.jpg" alt="#" style="margin-top: -5px;" /> All Rights Reserved. Company Name © 2018</p>
+                  </div>
+                  <div class="col-md-4">
+                     <ul class="list-inline socials">
+                        <li>
+                           <a href="">
+                           <i class="fa fa-facebook" aria-hidden="true"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="">
+                           <i class="fa fa-twitter" aria-hidden="true"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="">
+                           <i class="fa fa-instagram" aria-hidden="true"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <i class="fa fa-linkedin" aria-hidden="true"></i>
+                           </a>
+                        </li>
+                     </ul>
+                     <ul class="right-flag">
+                        <li><a href="#"><img src="TIR.png" width="20px" height="20px" alt="" /> <span>Ind</span></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!--main js--> 
+      <script src="{%static 'website/js/jquery-1.12.4.min.js'%}"></script> 
+      <!--bootstrap js--> 
+      <script src="{%static 'website/js/bootstrap.min.js'%}"></script> 
+      <script src="{%static 'website/js/bootstrap-select.min.js'%}"></script>
+      <script src="{%static 'website/js/slick.min.js'%}"></script> 
+      <script src="{%static 'website/js/jquery-ui.js'%}"></script> 
+      <script src="{%static 'website/js/wow.min.js'%}"></script>
+      <!--custom js--> 
+      <script src="{%static 'website/js/custom.js'%}"></script>
+     <!-- <script>
+         $( function() {
+         	$( "#slider-range" ).slider({
+         		range: true,
+         		min: 0 ,
+         		max: 2000 ,
+         		values: [ 158, 1230 ],
+         		slide: function( event, ui ) {
+         			$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+         		}
+         	});
+         	$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+         		" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+         } );
+      </script>
+      <script src="js/jquery.nicescroll.min.js"></script> 
+      <script>
+         $(document).ready(function() {
+           $("#boxscroll").niceScroll({cursorborder:"",cursorcolor:"#ededed",boxzoom:true}); // First scrollable DIV
+         });
+      </script>-->
+
+<!--<script>
+// Find out the cart items from localStorage
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    updateCart(cart);
+}
+// If the add to cart button is clicked, add/increment the item
+$('.cart').click(function() {
+    var idstr = this.id.toString();
+    if (cart[idstr] != undefined) {
+        cart[idstr] = cart[idstr] + 1;
+    } else {
+        cart[idstr] = 1;
+    }
+    updateCart(cart);
+    
+});
+//Add Popover to cart
+$('#popcart').popover();
+document.getElementById("popcart").setAttribute('data-content', '<h5>Cart for your items in my shopping cart</h5>');
+function updateCart(cart) {
+   console.log(cart);
+    for (var item in cart) {
+        document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    console.log(cart);
+}
+// If plus or minus button is clicked, change the cart as well as the display value
+$('.divpr').on("click", "button.minus", function() {
+    a = this.id.slice(7, );
+    cart['pr' + a] = cart['pr' + a] - 1;
+    cart['pr' + a] = Math.max(0, cart['pr' + a]);
+    document.getElementById('valpr' + a).innerHTML = cart['pr' + a];
+    updateCart(cart);
+});
+$('.divpr').on("click", "button.plus", function() {
+    a = this.id.slice(6, );
+    cart['pr' + a] = cart['pr' + a] + 1;
+    document.getElementById('valpr' + a).innerHTML = cart['pr' + a];
+    updateCart(cart);
+});
+</script>
+
+<script>
+// ************************************************
+// Shopping Cart API
+// ************************************************
+
+var shoppingCart = (function() {
+  // =============================
+  // Private methods and propeties
+  // =============================
+  cart = [];
+  
+  // Constructor
+  function Item(name, price, count) {
+    this.name = name;
+    this.price = price;
+    this.count = count;
+  }
+  
+  // Save cart
+  function saveCart() {
+    sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+  }
+  
+    // Load cart
+  function loadCart() {
+    cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+  }
+  if (sessionStorage.getItem("shoppingCart") != null) {
+    loadCart();
+  }
+  
+
+  // =============================
+  // Public methods and propeties
+  // =============================
+  var obj = {};
+  
+  // Add to cart
+  obj.addItemToCart = function(name, price, count) {
+    for(var item in cart) {
+      if(cart[item].name === name) {
+        cart[item].count ++;
+        saveCart();
+        return;
+      }
+    }
+    var item = new Item(name, price, count);
+    cart.push(item);
+    saveCart();
+  }
+  // Set count from item
+  obj.setCountForItem = function(name, count) {
+    for(var i in cart) {
+      if (cart[i].name === name) {
+        cart[i].count = count;
+        break;
+      }
+    }
+  };
+  // Remove item from cart
+  obj.removeItemFromCart = function(name) {
+      for(var item in cart) {
+        if(cart[item].name === name) {
+          cart[item].count --;
+          if(cart[item].count === 0) {
+            cart.splice(item, 1);
+          }
+          break;
+        }
+    }
+    saveCart();
+  }
+
+  // Remove all items from cart
+  obj.removeItemFromCartAll = function(name) {
+    for(var item in cart) {
+      if(cart[item].name === name) {
+        cart.splice(item, 1);
+        break;
+      }
+    }
+    saveCart();
+  }
+
+  // Clear cart
+  obj.clearCart = function() {
+    cart = [];
+    saveCart();
+  }
+
+  // Count cart 
+  obj.totalCount = function() {
+    var totalCount = 0;
+    for(var item in cart) {
+      totalCount += cart[item].count;
+    }
+    return totalCount;
+  }
+
+  // Total cart
+  obj.totalCart = function() {
+    var totalCart = 0;
+    for(var item in cart) {
+      totalCart += cart[item].price * cart[item].count;
+    }
+    return Number(totalCart.toFixed(2));
+  }
+
+  // List cart
+  obj.listCart = function() {
+    var cartCopy = [];
+    for(i in cart) {
+      item = cart[i];
+      itemCopy = {};
+      for(p in item) {
+        itemCopy[p] = item[p];
+
+      }
+      itemCopy.total = Number(item.price * item.count).toFixed(2);
+      cartCopy.push(itemCopy)
+    }
+    return cartCopy;
+  }
+
+  // cart : Array
+  // Item : Object/Class
+  // addItemToCart : Function
+  // removeItemFromCart : Function
+  // removeItemFromCartAll : Function
+  // clearCart : Function
+  // countCart : Function
+  // totalCart : Function
+  // listCart : Function
+  // saveCart : Function
+  // loadCart : Function
+  return obj;
+})();
+
+
+// *****************************************
+// Triggers / Events
+// ***************************************** 
+// Add item
+$('.add-to-cart').click(function(event) {
+  event.preventDefault();
+  var name = $(this).data('name');
+  var price = Number($(this).data('price'));
+  shoppingCart.addItemToCart(name, price, 1);
+  displayCart();
+});
+
+// Clear items
+$('.clear-cart').click(function() {
+  shoppingCart.clearCart();
+  displayCart();
+});
+
+
+function displayCart() {
+  var cartArray = shoppingCart.listCart();
+  var output = "";
+  for(var i in cartArray) {
+    output += "<tr>"
+      + "<td>" + cartArray[i].name + "</td>" 
+      + "<td>(" + cartArray[i].price + ")</td>"
+      + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+      + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+      + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+      + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+      + " = " 
+      + "<td>" + cartArray[i].total + "</td>" 
+      +  "</tr>";
+  }
+  $('.show-cart').html(output);
+  $('.total-cart').html(shoppingCart.totalCart());
+  $('.total-count').html(shoppingCart.totalCount());
+}
+
+// Delete item button
+
+$('.show-cart').on("click", ".delete-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.removeItemFromCartAll(name);
+  displayCart();
+})
+
+
+// -1
+$('.show-cart').on("click", ".minus-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.removeItemFromCart(name);
+  displayCart();
+})
+// +1
+$('.show-cart').on("click", ".plus-item", function(event) {
+  var name = $(this).data('name')
+  shoppingCart.addItemToCart(name);
+  displayCart();
+})
+
+// Item count input
+$('.show-cart').on("change", ".item-count", function(event) {
+   var name = $(this).data('name');
+   var count = Number($(this).val());
+  shoppingCart.setCountForItem(name, count);
+  displayCart();
+});
+
+displayCart();
+
+</script>-->
+
+
+ <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+   </body>
+</html>

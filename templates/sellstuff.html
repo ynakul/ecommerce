@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} SELL STUFF {% endblock %}
+
+<style>
+
+</style>
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <h3>Sell product</h3>
+            <hr>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-info">Submit Data</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

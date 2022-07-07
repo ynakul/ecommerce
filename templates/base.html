@@ -1,0 +1,268 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+      <title>WYN- buy and sell books </title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!--enable mobile device-->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--fontawesome css--> 
+      <link rel="stylesheet" href="{%static 'website/css/font-awesome.min.css'%}">
+      <!--bootstrap css-->
+      <link rel="stylesheet" href="{%static 'website/css/bootstrap.min.css'%}">
+      <!--animate css-->
+      <link rel="stylesheet" href="{%static 'website/css/animate-wow.css' %}">
+      <!--main css-->
+      <link rel="stylesheet" href="{%static 'website/css/style.css'%}">
+      <link rel="stylesheet" href="{%static 'website/css/bootstrap-select.min.css'%}">
+      <link rel="stylesheet" href="{%static 'website/css/slick.min.css'%}">
+      <!--responsive css-->
+      <link rel="stylesheet" href="{%static 'website/css/responsive.css'%}">
+
+     
+
+
+</head>
+<style>
+.bbt{
+   display:flex;
+   
+}
+</style>
+
+<body>
+   <header id="header" class="top-head">
+         <!-- Static navbar -->
+         <nav class="navbar navbar-default">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-4 col-sm-12 left-rs">
+                     <div class="navbar-header">
+                        <button type="button" id="top-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"> 
+                        <span class="sr-only">Toggle navigation</span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        </button>
+                        <!-- {%static 'website/images/'%}-->
+                        <a href="/" class="navbar-brand"><img src="{%static 'website/images/w1.jpg'%}" alt="" /></a>
+                     </div>
+                     <form class="navbar-form navbar-left web-sh" action="{% url 'books:search' %}" method="GET">
+                        <div class="bbt"  >
+                           <input name="keyword" type="search" class="form-control" placeholder="Search for product" required>
+                          <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button> 
+                        </div>
+                     </form>
+                     
+                  </div>
+                  <div class="col-md-8 col-sm-12">
+                     <div class="right-nav">
+                     
+                        <div class="login-sr">
+                           <div class="login-signup">
+                           
+           
+            
+            
+                              <ul><li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% if request.user.customer %}
+                <a class="dropdown-item" href="{% url 'books:customerprofile' %}">My Profile</a>
+                <a class="dropdown-item" href="{% url 'books:customerlogout' %}"> Logout </a>
+                {% else %}
+                <a class="dropdown-item" href="{% url 'books:customerregistration' %}">Register</a>
+                <a class="dropdown-item" href="{% url 'books:customerlogin' %}">Login</a>
+                {% endif %}
+                </div>
+            </li>
+            </ul>
+            
+                   
+           </div>
+        </div>
+              
+                             
+
+
+                        <div class="help-r hidden-xs">
+                           <div class="help-box">
+                              <ul>
+                              <li> <a href="/contact"><img class="h-i" src="{%static 'website/images/images/help-icon.png'%}" alt="" /> help </a> </li>
+                               <li>
+                                 
+                               <a href="{% url 'books:mycart'  %}"> <button type="button"   class="btn btn-primary" data-toggle="modal" data-target="#cart">Cart</button> </a>
+                                 
+                                </li>
+                                 
+                                 
+                                
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="nav-b hidden-xs">
+                           <div class="nav-box">
+                              <ul>
+                                 <li><a href="\howitworks">How it works</a></li>
+                                 <li><a href="\about">about us</a></li>
+                                 
+                              </ul>
+                           </div>
+                        </div>
+                        
+                     </div>
+                     
+                  </div>
+                  
+               </div>
+               
+            </div>
+            <!--/.container-fluid --> 
+            
+         </nav>
+      </header>
+      <!-- Modal -->
+ 
+
+      </div>
+      <div id="sidebar" class="top-nav">
+         <ul id="sidebar-nav" class="sidebar-nav">
+            <li><a href="/contact">contact</a></li>
+            <li><a href="howitworks.html">How it works</a></li>
+            <li><a href="#">WYN for Business</a></li>
+         </ul>
+      </div>
+
+ {% block content %}
+    {% endblock %}
+
+
+      <footer>
+         <div class="main-footer">
+            <div class="container">
+               <div class="row">
+                  <div class="footer-top clearfix">
+                     <div class="col-md-2 col-sm-6">
+                        <h2>Start a free
+                           account today
+                        </h2>
+                     </div>
+                     <div class="col-md-6 col-sm-6">
+                        <div class="form-box">
+                           <input type="text" placeholder="Enter yopur e-mail" />
+                           <button>Continue</button>
+                        </div>
+                     </div>
+                     <div class="col-md-4 col-sm-12">
+                        <div class="help-box-f">
+                           <h4>Question? Call us on 12 34 56 78 for help</h4>
+                           <p>Easy setup - no payment fees </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="footer-link-box clearfix">
+                     <div class="col-md-6 col-sm-6">
+                        <div class="left-f-box">
+                           <div class="col-sm-4">
+                              <h2>SELL ON WYN</h2>
+                              <ul>
+                                 <li><a href="/register/">Create account</a></li>
+                                 <li><a href="/howitworks">How it works suppliers</a></li>
+                                 
+                              </ul>
+                           </div>
+                           <div class="col-sm-4">
+                              <h2>BUY ON WYN</h2>
+                              <ul>
+                                 <li><a href="/register/">Create account</a></li>
+                                 <li><a href="/howitworks">How it works buyers</a></li>
+                                 <li><a href="/category">Categories</a></li>
+                                 
+                              </ul>
+                           </div>
+                           <div class="col-sm-4">
+                              <h2>COMPANY</h2>
+                              <ul>
+                                 <li><a href="/about">About WYN</a></li>
+                                 <li><a href="/about-us.html">Contact us</a></li>
+                                 
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 col-sm-6">
+                        <div class="right-f-box">
+                           <h2>BOOKS WE HAVE</h2>
+                           <ul class="col-sm-4">
+                              <li><a href="/category">ICSE </a></li>
+                              <li><a href="/category">CBSE </a></li>
+                              <li><a href="/category">JEE MAIN</a></li>
+                              <li><a href="/category">JEE ADVANCE</a></li>
+                              <li><a href="/category">NEET</a></li>
+                           </ul>
+                           <ul class="col-sm-4">
+                              <li><a href="/category">ENGINEERING</a></li>
+                              <li><a href="/category">MEDICAL</a></li>
+                              <li><a href="/category">PHARMACY</a></li>
+                              <li><a href="/category">ARTS</a></li>
+                              <li><a href="/category">BUISNESS & FINANCE</a></li>
+                           </ul>
+                           <ul class="col-sm-4">
+                              <li><a href="/category">NOVELS</a></li>
+                              <li><a href="/category">UPSC</a></li>
+                              <li><a href="/category">SSC</a></li>
+                              <li><a href="/category">MANY MORE</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="copyright">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-8">
+                     <p><img width="90" src="{%static 'website/images/w1.jpg'%}" alt="#" style="margin-top: -5px;" /> All Rights Reserved. Company Name © 2018</p>
+                  </div>
+                  <div class="col-md-4">
+                     <ul class="list-inline socials">
+                        <li>
+                           <a href="">
+                           <i class="fa fa-facebook" aria-hidden="true"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="">
+                           <i class="fa fa-twitter" aria-hidden="true"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="">
+                           <i class="fa fa-instagram" aria-hidden="true"></i>
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                           <i class="fa fa-linkedin" aria-hidden="true"></i>
+                           </a>
+                        </li>
+                     </ul>
+                     <ul class="right-flag">
+                        <li><a href="#"><img src="{%static 'website/images/TIR.png'%}" width="20px" height="20px" alt="" /> <span>Ind</span></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+
+   
+</body>
+
+</html>

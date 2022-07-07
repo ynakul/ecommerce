@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  height: 500px;
+  margin: 100px;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+  
+}
+
+.con {
+  border: none;
+  outline: 0;
+  margin-bottom:5px;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #09294c;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+
+.ppic{
+    height:350px;
+}
+.cont{
+    display:flex;
+}
+.status{
+    margin:100px;
+}
+</style>
+
+
+<div class="cont">
+
+<div class="card">
+<img src="{%static 'website/images/profile.jpg'%}" alt="" style="width:100%" class="ppic">
+  <h1>{{customer.full_name}}</h1>
+  <p class="title">Username: </span> {{customer.user.username}}</p>
+  <p class="other">Address:{{customer.address}}</p>
+  <p>Joined on: {{customer.joined_on}}</p>
+  
+  <p class="con">Contact:{{customer.user.email}}<br> {{customer.phone}}</p>
+</div>
+
+<div class="status col-md-8">
+            <h3>Previous Orders</h3>
+            <hr>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>Order ID</th>
+                        <th>Amount</th>
+                        <th>Ordered on</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ord in orders %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><a href=""> #ORDER_{{ord.id}}</a></td>
+                        <td>{{ord.total}}</td>
+                        <td>{{ord.created_at|timesince}} ago</td>
+                        <td>{{ord.order_status}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+</div>
+{% endblock %}

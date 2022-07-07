@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+      
+   {% block content %}
+
+   <style>
+         .ls{
+            	background: #09294c;
+               font-color:white;
+              
+         }
+
+         .container1{
+             margin-left: 30%;
+             margin-top:50px;
+         }
+        
+        h3{
+             
+            margin-top: 15px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 2px #CCCCCC;
+            font-weight: bold; letter-spacing: -1px;
+         }
+         
+      </style>
+     
+      
+      
+      	<div class="container1">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h3> Login </h3>
+            <hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-primary">Login as a Customer</button>
+                {% if error %}
+                <li style="color: red;">{{error}}</li>
+                {% endif %}
+            </form>
+            <p>Forgot Password?<a href="/forgot-password/">Reset now.</a></p>
+            <p> or dont have account? <a href="/register{% if request.GET.next %}?next={{request.GET.next}}{% endif %}">Sign Up</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

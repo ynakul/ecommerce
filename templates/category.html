@@ -1,0 +1,572 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} About {% endblock %}
+
+{% block content %}
+   <style>
+
+
+.filterDiv {
+  width: 30%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+.baby {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.betemoj,.usp{
+   display: flex;
+   margin-left: 300px;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+
+.show-cart li {
+  display: flex;
+}
+</style>
+
+  
+      <div class="furniture-box">
+         <div class="terms-title">
+            <div class="container">
+               <div class="row">
+                  <ol class="breadcrumb">
+                     <li><a href="#">Forntpage </a></li>
+                     <li class="active">Buy Stuff</li>
+                  </ol>
+               </div>
+            </div>
+         </div>
+      </div>
+
+         
+
+      <div class="furniture-box">
+         <div class="container">
+            <div class="row">
+               <div class="furniture-main">
+                  <h2>BUY STUFF</h2>
+                 <div class="col-md-3 col-sm-4">
+                     <div class="furniture-left">
+                        <h3>Filter Products</h3>
+
+                     <div class="by-com">
+                           <h5> CONDITION</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox1" class="filled-in chk-col-blue" value="New" type="checkbox">
+                                    <label for="checkbox1">
+                                    New
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox2" class="filled-in chk-col-blue" type="checkbox" value="AlmostNew">
+                                    <label for="checkbox2">
+                                    Almost New
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox3" class="filled-in chk-col-blue" type="checkbox" value="Good">
+                                    <label for="checkbox3">
+                                    Good 
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox4" class="filled-in chk-col-blue" type="checkbox" value="">
+                                    <label for="checkbox4">
+                                    Readable
+                                    </label>
+                                 </div>
+                                 
+                            </div>
+                        </div>
+                        </div> 
+
+
+                        <div class="by-com">
+                           <h5>NOVELS</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox5" class="filled-in chk-col-blue" value="Crime" type="checkbox">
+                                    <label for="checkbox5">
+                                    Crime
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox6" class="filled-in chk-col-blue" type="checkbox" value="Thriller">
+                                    <label for="checkbox6">
+                                    Thriller
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox7" class="filled-in chk-col-blue" type="checkbox" value="Motivation">
+                                    <label for="checkbox7">
+                                    Motivation
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox8" class="filled-in chk-col-blue" type="checkbox" value="">
+                                    <label for="checkbox8">
+                                    Romance
+                                    </label>
+                                 </div>
+                                 
+                             
+                                 
+                           </div>
+                        </div>
+                        </div>
+
+                        <div class="by-com">
+                           <h5> FOR SCHOOL</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox9" class="filled-in chk-col-blue" value="1-5" type="checkbox">
+                                    <label for="checkbox9">
+                                    Class 1-5
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox10" class="filled-in chk-col-blue" type="checkbox" value="5-8">
+                                    <label for="checkbox10">
+                                    Class 5-8
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox11" class="filled-in chk-col-blue" type="checkbox" 
+                                    value="9-10">
+                                    <label for="checkbox11">
+                                    Class 9-10
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox12" class="filled-in chk-col-blue" type="checkbox" 
+                                    value="11-12">
+                                    <label for="checkbox12">
+                                    Class 11-12
+                                    </label>
+                                 </div>
+                                 
+                            </div>
+                        </div>
+                        </div> 
+
+                        <div class="by-com">
+                           <h5> For COMPETATIVE EXAMS</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox13" class="filled-in chk-col-blue" value="jee" type="checkbox">
+                                    <label for="checkbox13">
+                                    JEE(Mains & Advance)
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox14" class="filled-in chk-col-blue" type="checkbox" value="neet">
+                                    <label for="checkbox14">
+                                    NEET
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox15" class="filled-in chk-col-blue" type="checkbox" value="clat">
+                                    <label for="checkbox15">
+                                    CLAT
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox16" class="filled-in chk-col-blue" type="checkbox" value="ssc">
+                                    <label for="checkbox16">
+                                    SSC
+                                    </label>
+                                 </div>
+                                 
+                                 <div class="form-check">
+                                    <input id="checkbox17" class="filled-in chk-col-blue" type="checkbox" value="defence">
+                                    <label for="checkbox17">
+                                    DEFENCE
+                                    </label>
+                                 </div>
+
+                                 <div class="form-check">
+                                    <input id="checkbox18" class="filled-in chk-col-blue" type="checkbox" value="gateandese">
+                                    <label for="checkbox18">
+                                    GATE & ESE
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox19" class="filled-in chk-col-blue" type="checkbox" value="upsc">
+                                    <label for="checkbox19">
+                                    UPSC
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox20" class="filled-in chk-col-blue" type="checkbox" value="other">
+                                    <label for="checkbox20">
+                                    OTHER GOVT. EXAMS
+                                    </label>
+                                 </div>
+                            </div>
+                        </div>
+                        </div> 
+                             
+                        <div class="by-com">
+                           <h5>LANGUAGES</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox21" class="filled-in chk-col-blue" type="checkbox" value="English">
+                                    <label for="checkbox21">
+                                    English
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox22" class="filled-in chk-col-blue" type="checkbox" 
+                                    value="Hindi">
+                                    <label for="checkbox22">
+                                    Hindi
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox23" class="filled-in chk-col-blue" type="checkbox" value="German">
+                                    <label for="checkbox23">
+                                    German 
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox24" class="filled-in chk-col-blue" type="checkbox" value="Russian">
+                                    <label for="checkbox24">
+                                    Russian
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox25" class="filled-in chk-col-blue" type="checkbox" value="French">
+                                    <label for="checkbox25">
+                                    French
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox26" class="filled-in chk-col-blue" type="checkbox" value="Sanskrit">
+                                    <label for="checkbox26">
+                                    Sanskrit
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox27" class="filled-in chk-col-blue" type="checkbox" value="Spanish">
+                                    <label for="checkbox27">
+                                    Spanish
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox28" class="filled-in chk-col-blue" type="checkbox" value="Italian">
+                                    <label for="checkbox28">
+                                    italian
+                                    </label>
+                                 </div>
+                                 
+                           </div>
+                        </div>
+                        </div>
+
+                        <div class="by-com">
+                           <h5>PRICE</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox29" class="filled-in chk-col-blue" type="checkbox" value="0-100">
+                                    <label for="checkbox29">
+                                    0-100
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox30" class="filled-in chk-col-blue" type="checkbox" value="100-250">
+                                    <label for="checkbox30">
+                                    100-250
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox31" class="filled-in chk-col-blue" type="checkbox" value="250-500">
+                                    <label for="checkbox31">
+                                    250-500
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox32" class="filled-in chk-col-blue" type="checkbox" value="500-1000">
+                                    <label for="checkbox32">
+                                    500-1000
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox33" class="filled-in chk-col-blue" type="checkbox" value="1000-2000">
+                                    <label for="checkbox33">
+                                    1000-2000
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox34" class="filled-in chk-col-blue" type="checkbox" value="2000-3000">
+                                    <label for="checkbox34">
+                                    2000-3000
+                                    </label>
+                                 </div>  
+                           </div>
+                        </div>
+                        </div>
+
+                        <div class="by-com">
+                           <h5>BINDING</h5>
+                           <div class="list-b">
+                              <div id="boxscroll">
+                                 <div class="form-check">
+                                    <input id="checkbox35" class="filled-in chk-col-blue" type="checkbox" value="paperback">
+                                    <label for="checkbox35">
+                                    Paperback
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox36" class="filled-in chk-col-blue" type="checkbox" value="hardcover">
+                                    <label for="checkbox36">
+                                    Hardcover
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox37" class="filled-in chk-col-blue" type="checkbox" value="boxset">
+                                    <label for="checkbox37">
+                                       Box Set
+                                    </label>
+                                 </div>
+                                 <div class="form-check">
+                                    <input id="checkbox38" class="filled-in chk-col-blue" type="checkbox" value="boardbook">
+                                    <label for="checkbox38">
+                                       Board Book
+                                    </label>
+                                 </div>
+                           </div>
+                        </div>
+                        </div>
+
+                        
+  
+  
+
+
+                        <div class="left-list-f">
+                           <div class="panel-group" id="accordion">
+                              <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="panel-title expand">
+                                       <div class="right-arrow pull-right"><span class="caret"></span></div>
+                                       <a href="#">Sort by</a>
+                                    </h4>
+                                 </div>
+                                 <div id="collapse1" class="panel-collapse collapse">
+                                    <div class="panel-body">Lorem ipsum dolor sit amet,</div>
+                                 </div>
+                              </div>
+                              <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="panel-title expand">
+                                       <div class="right-arrow pull-right"><span class="caret"></span></div>
+                                       <a href="#">Ships from(country)</a>
+                                    </h4>
+                                 </div>
+                                 <div id="collapse2" class="panel-collapse collapse">
+                                    <div class="panel-body">Lorem ipsum dolor sit amet,</div>
+                                 </div>
+                              </div>
+                              <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="panel-title expand">
+                                       <div class="right-arrow pull-right"><span class="caret"></span></div>
+                                       <a href="#">Style</a>
+                                    </h4>
+                                 </div>
+                                 <div id="collapse3" class="panel-collapse collapse">
+                                    <div class="panel-body">Lorem ipsum dolor sit amet,</div>
+                                 </div>
+                              </div>
+                              <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                    <h4 data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="panel-title expand">
+                                       <div class="right-arrow pull-right"><span class="caret"></span></div>
+                                       <a href="#">Pattern type</a>
+                                    </h4>
+                                 </div>
+                                 <div id="collapse4" class="panel-collapse collapse">
+                                    <div class="panel-body">Lorem ipsum dolor sit amet,</div>
+                                 </div>
+                              </div>      
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  
+                 
+                  
+                  
+
+           
+
+                
+
+
+                         
+                     <div class="betemoj">     
+                  
+                      {% for i in product|slice:"0:"%} 
+                          <div class="filterDiv" data-id="{{i.title}}"
+                           data-category="{{i.category}} {{i.condition}} {{i.language}} {{i.price_range}} {{i.binding}}" > 
+                           <a > <img src='/media/{{i.image}}'  alt="Norther Lights" style="width:100%"></a>
+                          <div class="baby">
+                          <p><h4>{{i.title}}</h4></p>
+                          <p><span></span></p>
+                         <strike> <h3>Rs. {{i.marked_price}} </h3> </strike>
+                         <h3>Rs. {{i.selling_price}} </h3>
+                         <span id="divpr{{i.id}}" class="divpr">
+                           <!--<button id="pr{{i.id}} "type="button" class="btn btn-primary cart">Add to Cart</button>-->
+                           <a href="/addtocart/{{i.id}}" data-name="{{i.title}}" data-price="{{i.selling_price}}" class="add-to-cart btn btn-primary">Add to cart</a>
+                         </span>
+                         <a href="/products/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">Quick View</button></a>
+                          </div>
+                         </div>
+                     {% endfor %}
+
+                       
+                   </div>  
+                          
+                          
+                   
+
+                  
+                   
+
+                  <!--    <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="show-cart table">
+          
+        </table>
+        <div>Total price: Rs.<span class="total-cart"></span></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Order now</button>
+      </div>
+    </div> 
+  </div>
+</div>            -->
+                  
+                   
+                 
+                  <div class="loding-box">
+                     <a href="#">
+                        <div class="sk-wave">
+                           <div class="sk-rect sk-rect1"></div>
+                           <div class="sk-rect sk-rect2"></div>
+                           <div class="sk-rect sk-rect3"></div>
+                           <div class="sk-rect sk-rect4"></div>
+                           <div class="sk-rect sk-rect5"></div>
+                        </div>
+                        <span>Loding more awesome products...</span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--main js--> 
+      <script src="{%static 'website/js/jquery-1.12.4.min.js'%}"></script> 
+      <!--bootstrap js--> 
+      <script src="{%static 'website/js/bootstrap.min.js'%}"></script> 
+      <script src="{%static 'website/js/bootstrap-select.min.js'%}"></script>
+      <script src="{%static 'website/js/slick.min.js'%}"></script> 
+      <script src="{%static 'website/js/jquery-ui.js'%}"></script> 
+      <script src="{%static 'website/js/wow.min.js'%}"></script>
+      <!--custom js--> 
+      <script src="{%static 'website/js/custom.js'%}"></script>
+     
+
+
+ <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+   
+   
+   
+   
+   <script>
+var $filterCheckboxes = $('input[type="checkbox"]');
+var filterFunc = function() {
+  
+  var selectedFilters = {};
+
+  $filterCheckboxes.filter(':checked').each(function() {
+
+    if (!selectedFilters.hasOwnProperty(this.name)) {
+      selectedFilters[this.name] = [];
+    }
+
+    selectedFilters[this.name].push(this.value);
+  });
+
+  // create a collection containing all of the filterable elements
+  var $filteredResults = $('.filterDiv');
+
+  // loop over the selected filter name -> (array) values pairs
+  $.each(selectedFilters, function(name, filterValues) {
+
+    // filter each .flower element
+    $filteredResults = $filteredResults.filter(function() {
+
+      var matched = false,
+        currentFilterValues = $(this).data('category').split(' ');
+
+      // loop over each category value in the current .flower's data-category
+      $.each(currentFilterValues, function(_, currentFilterValue) {
+
+        // if the current category exists in the selected filters array
+        // set matched to true, and stop looping. as we're ORing in each
+        // set of filters, we only need to match once
+
+        if ($.inArray(currentFilterValue, filterValues) != -1) {
+          matched = true;
+          return false;
+        }
+      });
+
+      // if matched is true the current .flower element is returned
+      return matched;
+
+    });
+  });
+
+  $('.filterDiv').hide().filter($filteredResults).show();
+}
+
+$filterCheckboxes.on('change', filterFunc);  
+
+   </script>
+   {% endblock%}
